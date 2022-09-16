@@ -25,10 +25,10 @@ OS(C:)
 > The file should be somewhere like this:   **C:\Program Files (x86)\DOSBox-0.74-3\DOSBox 0.74-3 Options.bat**  
 > It will add masm folder to path and open your working directory whenever you open DOSBox (otherwise you'll have to mount the program everytime starting DOSBox).
 
-`
-mount c c:\8086
-path=%path%;\masm
-c:
+```
+mount c c:\8086  
+path=%path%;\masm  
+c:  
 cd asm
-`
-## Hello World Progra
+```
+## Hello World Program
