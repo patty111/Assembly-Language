@@ -1,4 +1,4 @@
-# Run Assembly Code(8086) with MASM(on windows) Using DOSBox
+# Run Assembly Code(8086) with MASM(on windows)
 ## Setting Up
 1. Download DOSBox from the Internet
 2. Create a folder which contains two subfolders. One will be your working directory and another for other necessary files. I'll name them "asm" and "masm".
@@ -31,4 +31,4 @@ path=%path%;\masm
 c:  
 cd asm
 ```
-
+## Hello World Program
