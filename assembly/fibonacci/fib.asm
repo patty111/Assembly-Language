@@ -1,5 +1,7 @@
 include Irvine32.inc
-
+.model flat,stdcall
+.stack 4096
+ExitProcess PROTO, dwExitCode:DWORD
 .code
 main PROC
     mov ecx,0
