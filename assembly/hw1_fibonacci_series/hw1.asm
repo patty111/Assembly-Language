@@ -6,10 +6,10 @@ ExitProcess PROTO, dwExitCode:DWORD
 .data
 fib DWORD 0, 1, 28 DUP (?)
 num DWORD ?
-.code
 
+.code
 main PROC
-    
+
     call READDEC
     mov num, EAX
     ;don't write num-2 !!!
@@ -35,10 +35,6 @@ main PROC
         call WRITEDEC
         call crlf
     loop L2
-        
-    ;call DUMPREGS
-
-
 
 
     exit

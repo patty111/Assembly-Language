@@ -4,17 +4,15 @@ include Irvine32.inc
 ExitProcess PROTO, dwExitCode:DWORD
 
 .data
-text DWORD "Enter a number between 20 ~ 30:",0
+text DWORD 10 DUP ("aws")
 
 .code
-
-
 main PROC
     mov EDX, text
     call WRITESTRING
 
     call READSTRING
-    call rclf
+    call crlf
     mov EDX, EAX
     call WRITESTRING
 
