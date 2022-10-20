@@ -4,7 +4,7 @@ include Irvine32.inc
 ExitProcess PROTO, dwExitCode:DWORD
 
 .data
-fib DWORD 0, 1, 28 DUP (?)
+fib DWORD 0, 1, 30 DUP (?)
 num DWORD ?
 
 .code
