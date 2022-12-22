@@ -13,42 +13,67 @@ ExitProcess PROTO, dwExitCode:DWORD
 
 .code
 convert2int PROC
-    mov ECX, EAX    ;ECX is num len
+    mov ECX, EAX 
     mov ESI, 0  ;convert initialize to 0
     L1:
-        mov EBX, 10    ;EBX is 10^n
+    ;    mov EBX, 10    ;EBX is 10^n
+	    mov EBX, 0
 
-            ; call DUMPREGS
-        mov EDI, EAX
-        sub EDI, 1
-        sub EDI, ECX
+        mov BL, AL
+		sub BL, CL
+
+
+
+        push EAX		;EAX store as string len
         push ECX
-        mov ECX, EDI
-        push EAX
-        mov EAX, 1
-
+        movzx ECX, BL
+        
+        mov EAX, 1		;EAX use to store and calculate 10^n
+        cmp ECX, 0
+        jbe next
+        
+        mov EBX, 10
+        L2:
+       		mul EBX
+       	loop L2
+       
+       ; above is  all ok
+        
+        next:        
+       	
+       	
         pop ECX
-        mov EBX, [EDX+ECX-1]
-
+       	mov BL, [EDX+ECX-1]		;BL stores digit as int
+        sub BL, '0'
         call DUMPREGS
-		sub EBX, '0'
-    	movzx EAX, BL
-		call WRITEDEC
-		
-        imul EBX
-        add ESI, EAX
+        
+        push EDX
+        mul BX
+        
+        pop EDX
+        call WRITEINT
+        call crlf
+        call DUMPREGS
 
-        pop EAX
+        add ESI, EAX
+        ;mov EAX, ESI
+        
+        ;call DUMPREGS
+		pop EAX
     loop L1
+    
+    mov EAX, ESI
+    call WRITEDEC
     ret
 convert2int ENDP
+
+
 main PROC
     mov ECX, 8
     mov EDX, OFFSET num1
     call READSTRING
     call convert2int
-    mov EAX, ESI
-
+;	call DUMPREGS
     
 
 
