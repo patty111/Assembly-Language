@@ -1,2 +1,2 @@
-# Assembly-Language 8086
+# Assembly-Language MASM
 吳榮根教授
